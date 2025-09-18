@@ -4,18 +4,21 @@ h1, h2 {
     font-size: 60px;
   }
   body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: beige;
-    margin: 0;
-    border-radius: 20px black;
-    padding: 20px;
-    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
   }
   h3 {
       color: #FFFDD0;
       font-family: Verdana, sans-serif;
       text-align: center;
       font-size: 60px;
+  }
+  main {
+    max-width: 1200px;
+    padding: 0px, 20px;
+    margin: 80px auto;
   }
   .cream {
       font-size: 30px;
@@ -28,22 +31,33 @@ h1, h2 {
       margin-top: 30px;
   }
   .card {
-      background: #A7C7E7 ;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 4px 8px rgba(0,0,0,0,0.15);
-      text-align: center;
-      padding: 20px;
-      transition: transform 0.3s ease, box-shadow 0.3 ease;
-      max-width: 350px;
-      margin: auto;
+      background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    padding: 40px 30px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+    animation: slideInUp 0.8s ease-out;
   }
+  
+  .card h3 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
   .card:hover {
-      background: #D8A7B1;
-      transform: scale(1.05);
-      transition: transform 0.3s ease, box-shadow 0.3 ease;
-      box-shadow: 0 8px 16px rgba(0,0,0,0,0.15)
-  }
+    transform: translateY(-15px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    background: rgba(255, 255, 255, 0.15);
+}
+
   img {
       width: 100%;
       height: auto;
@@ -51,3 +65,71 @@ h1, h2 {
       border-radius: 10px;
       
   }
+/* Reset text */
+.text {
+    margin: 0;
+}
+
+/* Header section */
+header {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+header p {
+    font-size: 18px;
+    margin-top: 5px;
+}
+
+/* Navigation bar */
+nav {
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+}
+
+nav img {
+    width: 60px;
+    height: 70px;
+    margin-right: 10px;
+}
+
+nav a:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #ff5252, #26c6da);
+}

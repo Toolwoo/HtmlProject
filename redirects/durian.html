@@ -1,85 +1,33 @@
 <html>
     <head>
         <title>Durian</title>
-    <style>
-        h1, h2 {
-    font-family: Verdana, sans-serif;
-    text-align: center;
-    font-size: 60px;
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: beige;
-    margin: 0;
-    padding: 20px;
-}
-
-h3 {
-    font-family: Verdana, sans-serif;
-    text-align: center;
-    font-size: 60px;
-}
-
-p {
-    font-size: 30px;
-}
-img {
-    display: block;        /* makes it behave like a block */
-    margin: 0 auto;        /* auto left/right margins = centered */
-    max-width: 20%;       /* optional: keeps it responsive */
-}
-  .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(100px, 2fr));
-      gap: 40px;
-      margin-top: 30px;
-  }
-  .card {
-      background: #A7C7E7 ;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 4px 8px rgba(0,0,0,0,0.15);
-      text-align: center;
-      padding: 20px;
-      transition: transform 0.3s ease, box-shadow 0.3 ease;
-      max-width: 350px;
-      margin: auto;
-  }
-  .container {
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
-  }
-
-  .container img{
-    width: 400px;
-    border-radius: 10px;
-}
-.steps{
-    font-size: 20px;
-    line-height: 1.6px;
-    border-radius: 12px;
-    box-shadow: 2px 2px 8px rgba(0,0,0,0,0.2);
-}
-.steps ol {
-    margin: 0;
-    padding-left: 25px;
-}
-.steps li {
-    margin-bottom: 30px;
-    font-size: 30px;
-}
-.gap {
-    margin-bottom: 60px;
-}
-    </style>
+        <link rel="stylesheet" href="durian.css">
     </head>
+    <main>
+            <!-- Header Section -->
+    <header>
+        <div class="header-content">
+            <h1>🏆 DURIAN 🏆</h1>
+            <p>Raja Buah-buahan Tropika Malaysia</p>
+        </div>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav>
+        <div class="nav-container">
+            <a href="/index.html" class="nav-logo">
+                <img src="/llogo.jpg" alt="Logo">
+            </a>
+            <a href="durian.html" class="nav-link active">Durian</a>
+            <a href="manggis.html" class="nav-link">Manggis</a>
+            <a href="rambutan.html" class="nav-link">Rambutan</a>
+        </div>
+    </nav>
     <body>
         <div class="gap">
         <h1>Durian</h1>
         <img src="durian.jpg">
-        <p style="text-align: center;">💡 Fakta-fakta tentang Durian! 💡</p>
+        <p>💡 Fakta-fakta tentang Durian! 💡</p>
         <div class="gap">
         <div class="grid">
             <div class="card">
@@ -106,14 +54,34 @@ img {
                 <div class="steps">
                 <h2>Langkah-Langkah: </h2>
                     <ol>
-                        <li>Pilih biji atau anak pokok durian yang sihat.</li>
-                        <li>Sediakan tanah yang subur dan gembur.</li>
-                        <li>Gali lubang sedalam 30–50 cm.</li>
-                        <li>Masukkan anak pokok dan timbus dengan tanah.</li>
-                        <li>Siram air secukupnya dan pastikan mendapat cahaya matahari.</li>
-                        <li>Letakkan baja organik dari semasa ke semasa.</li>
+                        <div class="carrd">
+                            <li>Pilih biji atau anak pokok durian yang sihat.</li>
+                        </div>
+                        <div class="carrd">
+                            <li>Sediakan tanah yang subur dan gembur.</li>
+                        </div>
+                        <div class="carrd">
+                            <li>Gali lubang sedalam 30–50 cm.</li>
+                        </div>
+                        <div class="carrd">
+                            <li>Masukkan anak pokok dan timbus dengan tanah.</li>
+                        </div>
+                        <div class="carrd">
+                            <li>Siram air secukupnya dan pastikan mendapat cahaya matahari.</li>
+                        </div>
+                        <div class="carrd">
+                            <li>Letakkan baja organik dari semasa ke semasa.</li>
+                        </div>
                     </ol>
                 </div>
         </div>
+        <script>
+                fetch('header.html')
+                    .then(response => response.text())
+                    .then(data => {
+                    document.getElementById('header-placeholder').innerHTML = data;
+                });
+        </script>
     </body>
+    </main>
 </html>

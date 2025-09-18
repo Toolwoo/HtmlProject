@@ -2,11 +2,12 @@
     <head>
         <title>Buah-buahan </title>
         <link rel="stylesheet" href="style.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
         <body>
             <div id="header-placeholder"></div>
             <main>
-            <h1> Buah-Buahan Tempatan Di Malaysia!</h1>
             <div class="grid">
                     <div class="card" onclick="window.location.href='redirects/durian.html'" style="cursor: pointer;">
                         <h3>Durian</h3>
@@ -26,12 +27,11 @@
             </div>
             </main>
             <script>
-    // Load header.html into #header-placeholder
-    fetch('header.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('header-placeholder').innerHTML = data;
-      });
-  </script>
+                fetch('header.html')
+                    .then(response => response.text())
+                    .then(data => {
+                    document.getElementById('header-placeholder').innerHTML = data;
+                });
+             </script>
         </body>
 </html>
