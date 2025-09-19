@@ -1,0 +1,211 @@
+h1, h2 {
+    font-family: Verdana, sans-serif;
+    text-align: center;
+    font-size: 60px;
+    color: white;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+h3 {
+    font-family: Verdana, sans-serif;
+    text-align: center;
+    font-size: 60px;
+    color: white;
+}
+
+p {
+    font-size: 30px;
+    text-align: center;
+    color: white;
+}
+
+img {
+    display: block;        /* makes it behave like a block */
+    margin: 0 auto;        /* auto left/right margins = centered */
+    max-width: 20%;       /* optional: keeps it responsive */
+}
+
+  .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 2fr));
+      gap: 40px;
+      margin-top: 30px;
+  }
+  .card {
+      background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    padding: 40px 30px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+    animation: slideInUp 0.8s ease-out;
+  }
+  
+  .card p {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+  .card:hover {
+    transform: translateY(-15px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+  img {
+      width: 100%;
+      height: auto;
+      max-width: 450px;
+      border-radius: 10px;
+      
+  }
+
+  .container {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .container img{
+    width: 400px;
+    border-radius: 10px;
+}
+.steps{
+    font-size: 20px;
+    line-height: 1.6px;
+    border-radius: 12px;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0,0.2);
+}
+.steps ol {
+    margin: 50px;
+    padding-left: 25px;
+    color: white;
+}
+.steps li {
+    margin: 40px;
+    padding-top: 20px;
+    font-size: 30px;
+}
+.gap {
+    margin-bottom: 60px;
+}
+header {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 25px 0;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.header-content h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    color: white;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+    margin-bottom: 15px;
+    animation: bounceIn 1.2s ease-out;
+}
+
+.header-content p {
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 500;
+    animation: slideInUp 1s ease-out 0.5s both;
+}
+
+/* Navigation */
+nav {
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 0 20px;
+}
+
+.nav-logo {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(45deg, #ff6b00, #ffad33);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    overflow: hidden;
+    padding: 5px;
+}
+
+.nav-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.nav-logo:hover {
+    transform: scale(1.1) rotate(360deg);
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 12px 25px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+  .carrd {
+      background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    padding: 10px 30px;
+    margin: 20px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .big {
+    width: 1000px;
+    height: auto;
+    max-width: 500px;
+    border-radius: 10px;
+  }
