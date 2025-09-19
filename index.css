@@ -25,9 +25,13 @@ p {
 }
 
 img {
-    display: block;        /* makes it behave like a block */
-    margin: 0 auto;        /* auto left/right margins = centered */
-    max-width: 20%;       /* optional: keeps it responsive */
+    display: block;     
+    margin: 0 auto;       
+    max-width: 10%; 
+    width: 100%;
+    height: auto;
+    max-width: 450px;
+    border-radius: 10px;      
 }
 
   .grid {
@@ -64,14 +68,6 @@ img {
     background: rgba(255, 255, 255, 0.15);
 }
 
-  img {
-      width: 100%;
-      height: auto;
-      max-width: 300px;
-      border-radius: 10px;
-      
-  }
-
   .container {
     display: flex;
     align-items: flex-start;
@@ -82,6 +78,7 @@ img {
     width: 400px;
     border-radius: 10px;
 }
+/*langkah ii*/
 .steps{
     font-size: 20px;
     line-height: 1.6px;
@@ -93,14 +90,17 @@ img {
     padding-left: 25px;
     color: white;
 }
+
 .steps li {
     margin: 40px;
     padding-top: 20px;
     font-size: 30px;
 }
+
 .gap {
     margin-bottom: 60px;
 }
+
 header {
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(15px);
@@ -202,3 +202,44 @@ nav {
     position: relative;
     overflow: hidden;
   }
+
+/* Back Home Button */
+.back-home {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.back-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.back-btn span {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.back-btn:hover span {
+    transform: translateX(-5px);
+}
+
+.white {
+    color: white;
+}
