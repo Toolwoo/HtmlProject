@@ -226,7 +226,7 @@ main {
 .btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-    background-opacity: 1;
+    background-attachment: 1;
 }
 
 .btn span {
