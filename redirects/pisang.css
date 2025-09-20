@@ -2,7 +2,7 @@ h1, h2 {
     font-family: Verdana, sans-serif;
     text-align: center;
     font-size: 60px;
-    color: white;
+    color: #34495E;;
 }
 
 body {
@@ -12,19 +12,21 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    color: #34495E;
 }
 
 h3 {
     font-family: Verdana, sans-serif;
     text-align: center;
     font-size: 60px;
-    color: white;
+    color: #34495E;;
 }
 
 p {
     font-size: 30px;
     text-align: center;
-    color: white;
+    color:#34495E;;
+    
 }
 
 img {
@@ -62,9 +64,9 @@ img {
 .card p {
     font-size: 1.5rem;
     font-weight: 700;
-    color: white;
+    color: #34495E;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    text-shadow: 2px 2px 2px rgba(0,0,0,0.2);
 }
 
 .card:hover {
@@ -223,11 +225,13 @@ nav {
     h3 {
         font-size: 3rem;
         padding: 0 15px;
+        color: #34495E;
     }
     
     p {
         font-size: 1.5rem;
         padding: 0 15px;
+        color: #34495E;
     }
     
     .header-content h1 {
@@ -282,11 +286,13 @@ nav {
     h3 {
         font-size: 2rem;
         padding: 0 15px;
+        color: #34495E;
     }
     
     p {
         font-size: 1.2rem;
         padding: 0 15px;
+        color: #34495E;
     }
     
     .header-content h1 {
@@ -311,6 +317,7 @@ nav {
     
     .card p {
         font-size: 1.2rem;
+        color: #34495E;
     }
     
     /* Disable hover effects on mobile */
@@ -391,11 +398,13 @@ nav {
     h3 {
         font-size: 1.5rem;
         padding: 0 10px;
+        color: #34495E;
     }
     
     p {
         font-size: 1rem;
         padding: 0 10px;
+        color: #34495E;
     }
     
     .header-content h1 {
@@ -419,6 +428,7 @@ nav {
     .card p {
         font-size: 1rem;
         margin-bottom: 15px;
+        color: #34495E;
     }
     
     .container {
@@ -474,11 +484,13 @@ nav {
     h3 {
         font-size: 1.3rem;
         padding: 0 5px;
+        color: #34495E;
     }
     
     p {
         font-size: 0.9rem;
         padding: 0 5px;
+        color: #34495E;
     }
     
     .header-content h1 {
@@ -499,6 +511,7 @@ nav {
     
     .card p {
         font-size: 0.9rem;
+        color: #34495E;
     }
     
     .container {
