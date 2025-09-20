@@ -9,6 +9,8 @@ body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     min-height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 
 h3 {
@@ -34,14 +36,16 @@ img {
     border-radius: 10px;      
 }
 
-  .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(100px, 2fr));
-      gap: 40px;
-      margin-top: 30px;
-  }
-  .card {
-      background: rgba(255, 255, 255, 0.1);
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 2fr));
+    gap: 40px;
+    margin-top: 30px;
+    padding: 0 20px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     border-radius: 25px;
     padding: 40px 30px;
@@ -52,9 +56,9 @@ img {
     position: relative;
     overflow: hidden;
     animation: slideInUp 0.8s ease-out;
-  }
+}
   
-  .card p {
+.card p {
     font-size: 1.5rem;
     font-weight: 700;
     color: white;
@@ -62,29 +66,33 @@ img {
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
-  .card:hover {
+.card:hover {
     transform: translateY(-15px) scale(1.05);
     box-shadow: 0 20px 40px rgba(0,0,0,0.3);
     background: rgba(255, 255, 255, 0.15);
 }
 
-  .container {
+.container {
     display: flex;
     align-items: flex-start;
     gap: 20px;
-  }
+    padding: 0 20px;
+}
 
-  .container img{
+.container img{
     width: 400px;
     border-radius: 10px;
 }
+
 /*langkah ii*/
 .steps{
     font-size: 20px;
     line-height: 1.6px;
     border-radius: 12px;
     box-shadow: 2px 2px 8px rgba(0,0,0,0,0.2);
+    padding: 0 20px;
 }
+
 .steps ol {
     margin: 50px;
     padding-left: 25px;
@@ -191,8 +199,9 @@ nav {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
-  .carrd {
-      background: rgba(255, 255, 255, 0.1);
+
+.carrd {
+    background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     border-radius: 25px;
     padding: 10px 30px;
@@ -201,12 +210,13 @@ nav {
     border: 1px solid rgba(255, 255, 255, 0.2);
     position: relative;
     overflow: hidden;
-  }
+}
 
 /* Back Home Button */
 .back-home {
     text-align: center;
     margin-top: 60px;
+    padding: 0 20px;
 }
 
 .back-btn {
@@ -242,4 +252,150 @@ nav {
 
 .white {
     color: white;
+}
+
+/* Mobile Responsive Design */
+@media screen and (max-width: 768px) {
+    /* Headers */
+    h1, h2 {
+        font-size: 2.5rem;
+        padding: 0 15px;
+    }
+    
+    h3 {
+        font-size: 2rem;
+        padding: 0 15px;
+    }
+    
+    p {
+        font-size: 1.2rem;
+        padding: 0 15px;
+    }
+    
+    /* Header */
+    .header-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .header-content p {
+        font-size: 1rem;
+    }
+    
+    /* Navigation */
+    .nav-container {
+        flex-wrap: wrap;
+        gap: 15px;
+        padding: 0 15px;
+    }
+    
+    .nav-link {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+    
+    .nav-logo {
+        width: 45px;
+        height: 45px;
+    }
+    
+    /* Grid and Cards */
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 15px;
+    }
+    
+    .card {
+        padding: 30px 20px;
+        margin: 0 5px;
+    }
+    
+    .card p {
+        font-size: 1.2rem;
+    }
+    
+    /* Container */
+    .container {
+        flex-direction: column;
+        padding: 0 15px;
+    }
+    
+    .container img {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    /* Images */
+    img {
+        max-width: 280px;
+    }
+    
+    /* Steps */
+    .steps {
+        padding: 0 10px;
+    }
+    
+    .steps ol {
+        margin: 20px 10px;
+        padding-left: 15px;
+    }
+    
+    .steps li {
+        margin: 20px 0;
+        font-size: 1.1rem;
+        line-height: 1.5;
+    }
+    
+    /* Back button */
+    .back-btn {
+        padding: 12px 20px;
+        font-size: 1rem;
+    }
+    
+    /* Carrd */
+    .carrd {
+        margin: 15px 10px;
+        padding: 15px 20px;
+    }
+}
+
+/* Extra small phones */
+@media screen and (max-width: 480px) {
+    h1, h2 {
+        font-size: 2rem;
+    }
+    
+    h3 {
+        font-size: 1.5rem;
+    }
+    
+    p {
+        font-size: 1rem;
+    }
+    
+    .header-content h1 {
+        font-size: 2rem;
+    }
+    
+    .nav-container {
+        gap: 10px;
+    }
+    
+    .nav-link {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+    
+    .card {
+        padding: 20px 15px;
+    }
+    
+    .steps li {
+        font-size: 1rem;
+    }
+    
+    .back-btn {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
 }

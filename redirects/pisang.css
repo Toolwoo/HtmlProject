@@ -7,7 +7,7 @@ h1, h2 {
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #FFA559 0%, #FFCC70 100%);
+    background: linear-gradient(135deg, #FFD84D 0%, #FFEB99 100%);
     min-height: 100vh;
 }
 
@@ -201,4 +201,5 @@ nav {
     border: 1px solid rgba(255, 255, 255, 0.2);
     position: relative;
     overflow: hidden;
+    color: navy;
   }
