@@ -55,43 +55,14 @@ p {
 }
 
 /* ===============================
-   HEADER STYLES
-   =============================== */
-
-header {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(15px);
-    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
-    padding: 25px 0;
-}
-
-.header-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    text-align: center;
-}
-
-.header-content h1 {
-    animation: bounceIn 1.2s ease-out;
-}
-
-.header-content p {
-    font-size: 1.4rem;
-    color: rgba(255, 255, 255, 0.95);
-    font-weight: 500;
-    animation: slideInUp 1s ease-out 0.5s both;
-}
-
-/* ===============================
-   NAVIGATION STYLES
+   NAVIGATION STYLES (TOP)
    =============================== */
 
 nav {
-    background: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(15px);
     padding: 15px 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -148,6 +119,36 @@ nav {
     background: rgba(255, 255, 255, 0.25);
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* ===============================
+   HEADER STYLES
+   =============================== */
+
+header {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 40px 0;
+    margin-top: 0;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.header-content h1 {
+    animation: bounceIn 1.2s ease-out;
+}
+
+.header-content p {
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 500;
+    animation: slideInUp 1s ease-out 0.5s both;
 }
 
 /* ===============================
@@ -285,6 +286,11 @@ main {
     font-size: 1.1rem;
     color: #FFFDD0;
     line-height: 1.5;
+}
+
+.cream {
+    font-size: 1.1rem;
+    color: #FFFDD0;
 }
 
 /* ===============================
