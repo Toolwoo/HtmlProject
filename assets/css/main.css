@@ -1,0 +1,550 @@
+/* ===============================
+   GLOBAL STYLES
+   =============================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* ===============================
+   TYPOGRAPHY
+   =============================== */
+
+h1, h2 {
+    font-family: Verdana, sans-serif;
+    text-align: center;
+    color: white;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+}
+
+h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-family: Verdana, sans-serif;
+    text-align: center;
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2rem;
+    text-align: center;
+    color: white;
+    line-height: 1.6;
+}
+
+/* ===============================
+   HEADER STYLES
+   =============================== */
+
+header {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 25px 0;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.header-content h1 {
+    animation: bounceIn 1.2s ease-out;
+}
+
+.header-content p {
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 500;
+    animation: slideInUp 1s ease-out 0.5s both;
+}
+
+/* ===============================
+   NAVIGATION STYLES
+   =============================== */
+
+nav {
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 0 20px;
+}
+
+.nav-logo {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(45deg, #ff6b00, #ffad33);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    overflow: hidden;
+    padding: 5px;
+}
+
+.nav-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.nav-logo:hover {
+    transform: scale(1.1) rotate(360deg);
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 12px 25px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* ===============================
+   MAIN CONTENT STYLES
+   =============================== */
+
+main {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.hero-image {
+    display: block;
+    margin: 40px auto;
+    max-width: 450px;
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.action-button {
+    width: 100%;
+    max-width: 400px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-decoration: none;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    width: 100%;
+    min-height: 60px;
+}
+
+.btn-primary {
+    background: rgba(255, 107, 107, 0.8);
+    color: white;
+}
+
+.btn-secondary {
+    background: rgba(76, 175, 80, 0.8);
+    color: white;
+}
+
+.btn-accent {
+    background: rgba(33, 150, 243, 0.8);
+    color: white;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    background-opacity: 1;
+}
+
+.btn span {
+    transition: transform 0.3s ease;
+}
+
+.btn:hover span {
+    transform: translateX(5px);
+}
+
+/* ===============================
+   GRID LAYOUTS
+   =============================== */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    padding: 40px 30px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+    animation: slideInUp 0.8s ease-out;
+}
+
+.card:hover {
+    transform: translateY(-15px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.card h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    max-width: 250px;
+    border-radius: 15px;
+    margin: 20px 0;
+}
+
+.card p {
+    font-size: 1.1rem;
+    color: #FFFDD0;
+    line-height: 1.5;
+}
+
+/* ===============================
+   FOOTER STYLES
+   =============================== */
+
+footer {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 20px 0;
+    margin-top: 60px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.footer-content p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* ===============================
+   ANIMATIONS
+   =============================== */
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===============================
+   CUSTOM SCROLLBAR
+   =============================== */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #ff5252, #26c6da);
+}
+
+/* ===============================
+   RESPONSIVE DESIGN
+   =============================== */
+
+/* Large Tablets (1024px and below) */
+@media screen and (max-width: 1024px) {
+    .nav-container {
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+    
+    h1 {
+        font-size: 3rem;
+    }
+    
+    h2 {
+        font-size: 2.5rem;
+    }
+    
+    .grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+    }
+}
+
+/* Tablets (768px and below) */
+@media screen and (max-width: 768px) {
+    main {
+        padding: 20px 15px;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+        padding: 0 15px;
+    }
+    
+    h2 {
+        font-size: 2rem;
+        padding: 0 15px;
+    }
+    
+    .header-content p {
+        font-size: 1rem;
+    }
+    
+    .nav-container {
+        gap: 15px;
+        padding: 0 15px;
+        justify-content: center;
+    }
+    
+    .nav-logo {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .nav-link {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+    
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .card {
+        padding: 30px 20px;
+        margin: 0 5px;
+    }
+    
+    /* Disable hover effects on mobile */
+    .card:hover {
+        transform: none;
+        box-shadow: none;
+        background: rgba(255, 255, 255, 0.1);
+    }
+    
+    .nav-link:hover {
+        transform: none;
+        background: rgba(255, 255, 255, 0.15);
+    }
+    
+    .hero-image {
+        max-width: 300px;
+    }
+    
+    .action-buttons {
+        gap: 15px;
+    }
+    
+    .btn {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+}
+
+/* Mobile Phones (480px and below) */
+@media screen and (max-width: 480px) {
+    main {
+        padding: 15px 10px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+        padding: 0 10px;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+        padding: 0 10px;
+    }
+    
+    .header-content p {
+        font-size: 0.9rem;
+    }
+    
+    .nav-container {
+        gap: 10px;
+        padding: 0 10px;
+    }
+    
+    .nav-logo {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .nav-link {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+    
+    .card {
+        padding: 25px 15px;
+        border-radius: 20px;
+    }
+    
+    .card h3 {
+        font-size: 1.5rem;
+    }
+    
+    .card p {
+        font-size: 1rem;
+    }
+    
+    .hero-image {
+        max-width: 250px;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        min-height: 50px;
+    }
+}
+
+/* Extra Small Screens (360px and below) */
+@media screen and (max-width: 360px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    h2 {
+        font-size: 1.3rem;
+    }
+    
+    .card {
+        padding: 20px 12px;
+    }
+    
+    .card h3 {
+        font-size: 1.3rem;
+    }
+    
+    .nav-link {
+        padding: 4px 8px;
+        font-size: 0.75rem;
+    }
+    
+    .hero-image {
+        max-width: 200px;
+    }
+}
