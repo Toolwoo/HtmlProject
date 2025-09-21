@@ -8,26 +8,31 @@
     <link rel="stylesheet" href="../assets/css/pages.css">
 </head>
 <body>
-    <!-- Navigation Menu -->
+    <!-- Standardized Navigation Menu -->
     <nav>
         <div class="nav-container">
             <a href="../index.html" class="nav-logo">
                 <img src="../assets/images/logos/llogo.jpg" alt="Logo">
             </a>
-            <a href="fruits/durian.html" class="nav-link">Durian</a>
-            <a href="fruits/manggis.html" class="nav-link">Manggis</a>
-            <a href="fruits/pisang.html" class="nav-link">Pisang</a>
-            <a href="fruits/belimbing.html" class="nav-link">Belimbing</a>
             
-            <!-- Authentication Section -->
-            <div id="auth-section" style="display: flex; gap: 10px;">
-                <button id="login-btn" class="nav-link" style="border: none; background: rgba(255, 255, 255, 0.1); cursor: pointer;">Log Masuk</button>
-                <button id="signup-btn" class="nav-link" style="border: none; background: rgba(255, 255, 255, 0.1); cursor: pointer;">Daftar</button>
+            <!-- Main Navigation Links -->
+            <div class="nav-links">
+                <a href="fruits/durian.html" class="nav-link">Durian</a>
+                <a href="fruits/manggis.html" class="nav-link">Manggis</a>
+                <a href="fruits/pisang.html" class="nav-link">Pisang</a>
+                <a href="fruits/belimbing.html" class="nav-link">Belimbing</a>
+                <a href="comment.html" class="nav-link active">💬 Komen</a>
             </div>
             
-            <div id="user-section" style="display: none; gap: 10px; align-items: center;">
-                <span id="user-email" style="color: white; font-size: 0.9rem;"></span>
-                <button id="logout-btn" class="nav-link" style="border: none; background: rgba(255, 107, 107, 0.8); cursor: pointer;">Log Keluar</button>
+            <!-- Authentication Section -->
+            <div id="auth-section" class="auth-buttons">
+                <button id="login-btn" class="nav-link auth-btn">Log Masuk</button>
+                <button id="signup-btn" class="nav-link auth-btn">Daftar</button>
+            </div>
+            
+            <div id="user-section" class="user-info" style="display: none;">
+                <span id="user-email" class="user-email"></span>
+                <button id="logout-btn" class="nav-link logout-btn">Log Keluar</button>
             </div>
         </div>
     </nav>
@@ -167,12 +172,13 @@
         </div>
     </footer>
 
-    <!-- Load Supabase Client -->
+    <!-- Required Scripts -->
     <script type="module" src="../assets/js/supabase.js"></script>
+    <script type="module" src="../assets/js/auth.js"></script>
     
-    <!-- Comment Page JavaScript -->
+    <!-- Comment Page Specific JavaScript -->
     <script type="module">
-        // Wait for Supabase to load
+        // Wait for authentication to load
         window.addEventListener('load', async () => {
             await new Promise(resolve => {
                 if (window.authFunctions) {
@@ -198,8 +204,8 @@
             // Load existing comments
             loadComments();
 
-            // Set up event listeners
-            setupEventListeners();
+            // Set up comment form listener
+            setupCommentForm();
         }
 
         function updatePageForUser(user) {
@@ -215,8 +221,7 @@
             }
         }
 
-        function setupEventListeners() {
-            // Comment form submission
+        function setupCommentForm() {
             document.getElementById('comment-form').addEventListener('submit', async (e) => {
                 e.preventDefault();
                 
@@ -230,50 +235,6 @@
                     loadComments(); // Refresh comments
                 }
             });
-
-            // Login form submission
-            document.getElementById('login-form').addEventListener('submit', async (e) => {
-                e.preventDefault();
-                
-                const email = document.getElementById('login-email').value;
-                const password = document.getElementById('login-password').value;
-
-                const result = await window.authFunctions.signIn(email, password);
-                
-                if (result.success) {
-                    closeLoginModal();
-                    updatePageForUser(result.data.user);
-                    document.getElementById('login-form').reset();
-                }
-            });
-
-            // Signup form submission
-            document.getElementById('signup-form').addEventListener('submit', async (e) => {
-                e.preventDefault();
-                
-                const name = document.getElementById('signup-name').value;
-                const email = document.getElementById('signup-email').value;
-                const password = document.getElementById('signup-password').value;
-
-                const result = await window.authFunctions.signUp(email, password, name);
-                
-                if (result.success) {
-                    closeSignupModal();
-                    document.getElementById('signup-form').reset();
-                }
-            });
-
-            // Logout button
-            document.getElementById('logout-btn').addEventListener('click', async () => {
-                const result = await window.authFunctions.signOut();
-                if (result.success) {
-                    updatePageForUser(null);
-                }
-            });
-
-            // Modal buttons
-            document.getElementById('login-btn').addEventListener('click', openLoginModal);
-            document.getElementById('signup-btn').addEventListener('click', openSignupModal);
         }
 
         async function loadComments() {
@@ -298,23 +259,6 @@
                 commentsList.innerHTML = '<div style="text-align: center; color: white; padding: 20px;">Tiada komen lagi. Jadilah yang pertama!</div>';
             }
         }
-
-        // Modal functions
-        window.openLoginModal = () => {
-            document.getElementById('login-modal').style.display = 'flex';
-        };
-
-        window.closeLoginModal = () => {
-            document.getElementById('login-modal').style.display = 'none';
-        };
-
-        window.openSignupModal = () => {
-            document.getElementById('signup-modal').style.display = 'flex';
-        };
-
-        window.closeSignupModal = () => {
-            document.getElementById('signup-modal').style.display = 'none';
-        };
     </script>
 </body>
 </html>

@@ -8,16 +8,32 @@
     <link rel="stylesheet" href="../../assets/css/pages.css">
 </head>
 <body class="durian-theme">
-    <!-- Navigation Menu at Top -->
+    <!-- Standardized Navigation Menu -->
     <nav>
         <div class="nav-container">
             <a href="../../index.html" class="nav-logo">
                 <img src="../../assets/images/logos/llogo.jpg" alt="Logo">
             </a>
-            <a href="durian.html" class="nav-link active">Durian</a>
-            <a href="manggis.html" class="nav-link">Manggis</a>
-            <a href="pisang.html" class="nav-link">Pisang</a>
-            <a href="belimbing.html" class="nav-link">Belimbing</a>
+            
+            <!-- Main Navigation Links -->
+            <div class="nav-links">
+                <a href="durian.html" class="nav-link active">Durian</a>
+                <a href="manggis.html" class="nav-link">Manggis</a>
+                <a href="pisang.html" class="nav-link">Pisang</a>
+                <a href="belimbing.html" class="nav-link">Belimbing</a>
+                <a href="../comment.html" class="nav-link">💬 Komen</a>
+            </div>
+            
+            <!-- Authentication Section -->
+            <div id="auth-section" class="auth-buttons">
+                <button id="login-btn" class="nav-link auth-btn">Log Masuk</button>
+                <button id="signup-btn" class="nav-link auth-btn">Daftar</button>
+            </div>
+            
+            <div id="user-section" class="user-info" style="display: none;">
+                <span id="user-email" class="user-email"></span>
+                <button id="logout-btn" class="nav-link logout-btn">Log Keluar</button>
+            </div>
         </div>
     </nav>
 
@@ -98,11 +114,67 @@
         </div>
     </main>
 
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>🔑 Log Masuk</h3>
+                <span class="close" onclick="closeLoginModal()">&times;</span>
+            </div>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Kata Laluan</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Log Masuk</button>
+            </form>
+            <p style="text-align: center; margin-top: 15px; color: white;">
+                Belum ada akaun? <a href="#" onclick="closeLoginModal(); openSignupModal();" style="color: #4CAF50;">Daftar di sini</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signup-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>📝 Daftar Akaun</h3>
+                <span class="close" onclick="closeSignupModal()">&times;</span>
+            </div>
+            <form id="signup-form">
+                <div class="form-group">
+                    <label for="signup-name">Nama</label>
+                    <input type="text" id="signup-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-email">Email</label>
+                    <input type="email" id="signup-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-password">Kata Laluan</label>
+                    <input type="password" id="signup-password" required minlength="6">
+                </div>
+                <button type="submit" class="btn btn-secondary" style="width: 100%;">Daftar Akaun</button>
+            </form>
+            <p style="text-align: center; margin-top: 15px; color: white;">
+                Sudah ada akaun? <a href="#" onclick="closeSignupModal(); openLoginModal();" style="color: #FF6B6B;">Log masuk di sini</a>
+            </p>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer>
         <div class="footer-content">
             <p>&copy; 2025 Buah Tempatan Malaysia. Semua hak terpelihara.</p>
         </div>
     </footer>
+
+    <!-- Required Scripts -->
+    <script type="module" src="../../assets/js/supabase.js"></script>
+    <script type="module" src="../../assets/js/auth.js"></script>
 </body>
 </html>
