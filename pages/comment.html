@@ -8,14 +8,6 @@
     <link rel="stylesheet" href="../assets/css/pages.css">
 </head>
 <body>
-    <!-- Header Section -->
-    <header>
-        <div class="header-content">
-            <h1>💬 RUANG KOMEN 💬</h1>
-            <p>Kongsikan pendapat anda tentang buah-buahan tempatan Malaysia</p>
-        </div>
-    </header>
-
     <!-- Navigation Menu -->
     <nav>
         <div class="nav-container">
@@ -26,13 +18,45 @@
             <a href="fruits/manggis.html" class="nav-link">Manggis</a>
             <a href="fruits/pisang.html" class="nav-link">Pisang</a>
             <a href="fruits/belimbing.html" class="nav-link">Belimbing</a>
+            
+            <!-- Authentication Section -->
+            <div id="auth-section" style="display: flex; gap: 10px;">
+                <button id="login-btn" class="nav-link" style="border: none; background: rgba(255, 255, 255, 0.1); cursor: pointer;">Log Masuk</button>
+                <button id="signup-btn" class="nav-link" style="border: none; background: rgba(255, 255, 255, 0.1); cursor: pointer;">Daftar</button>
+            </div>
+            
+            <div id="user-section" style="display: none; gap: 10px; align-items: center;">
+                <span id="user-email" style="color: white; font-size: 0.9rem;"></span>
+                <button id="logout-btn" class="nav-link" style="border: none; background: rgba(255, 107, 107, 0.8); cursor: pointer;">Log Keluar</button>
+            </div>
         </div>
     </nav>
+
+    <!-- Header Section -->
+    <header>
+        <div class="header-content">
+            <h1>💬 RUANG KOMEN 💬</h1>
+            <p>Kongsikan pendapat anda tentang buah-buahan tempatan Malaysia</p>
+        </div>
+    </header>
 
     <!-- Main Content -->
     <main>
         <div class="comment-page">
-            <form class="comment-form" method="post" action="process.php">
+            <!-- Authentication Required Notice -->
+            <div id="auth-notice" class="auth-notice" style="display: none;">
+                <div class="notice-content">
+                    <h3>🔐 Log Masuk Diperlukan</h3>
+                    <p>Sila log masuk atau daftar akaun untuk menghantar komen.</p>
+                    <div class="notice-buttons">
+                        <button onclick="openLoginModal()" class="btn btn-primary">Log Masuk</button>
+                        <button onclick="openSignupModal()" class="btn btn-secondary">Daftar Akaun</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comment Form -->
+            <form id="comment-form" class="comment-form">
                 <h2 style="text-align: center; margin-bottom: 30px; color: white;">
                     Berikan Pendapat Anda
                 </h2>
@@ -63,6 +87,18 @@
                 </button>
             </form>
 
+            <!-- Comments Display -->
+            <div class="comments-section">
+                <h2 style="text-align: center; margin: 40px 0 30px 0; color: white;">
+                    💭 Komen Terdahulu
+                </h2>
+                <div id="comments-list" class="comments-list">
+                    <div class="loading" style="text-align: center; color: white; padding: 20px;">
+                        Memuatkan komen...
+                    </div>
+                </div>
+            </div>
+
             <!-- Back to Home -->
             <div class="back-home">
                 <a href="../index.html" class="back-btn">
@@ -72,11 +108,213 @@
         </div>
     </main>
 
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>🔑 Log Masuk</h3>
+                <span class="close" onclick="closeLoginModal()">&times;</span>
+            </div>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Kata Laluan</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Log Masuk</button>
+            </form>
+            <p style="text-align: center; margin-top: 15px; color: white;">
+                Belum ada akaun? <a href="#" onclick="closeLoginModal(); openSignupModal();" style="color: #4CAF50;">Daftar di sini</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signup-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>📝 Daftar Akaun</h3>
+                <span class="close" onclick="closeSignupModal()">&times;</span>
+            </div>
+            <form id="signup-form">
+                <div class="form-group">
+                    <label for="signup-name">Nama</label>
+                    <input type="text" id="signup-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-email">Email</label>
+                    <input type="email" id="signup-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-password">Kata Laluan</label>
+                    <input type="password" id="signup-password" required minlength="6">
+                </div>
+                <button type="submit" class="btn btn-secondary" style="width: 100%;">Daftar Akaun</button>
+            </form>
+            <p style="text-align: center; margin-top: 15px; color: white;">
+                Sudah ada akaun? <a href="#" onclick="closeSignupModal(); openLoginModal();" style="color: #FF6B6B;">Log masuk di sini</a>
+            </p>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer>
         <div class="footer-content">
             <p>&copy; 2025 Buah Tempatan Malaysia. Semua hak terpelihara.</p>
         </div>
     </footer>
+
+    <!-- Load Supabase Client -->
+    <script type="module" src="../assets/js/supabase.js"></script>
+    
+    <!-- Comment Page JavaScript -->
+    <script type="module">
+        // Wait for Supabase to load
+        window.addEventListener('load', async () => {
+            await new Promise(resolve => {
+                if (window.authFunctions) {
+                    resolve();
+                } else {
+                    const checkAuth = setInterval(() => {
+                        if (window.authFunctions) {
+                            clearInterval(checkAuth);
+                            resolve();
+                        }
+                    }, 100);
+                }
+            });
+
+            initializeCommentPage();
+        });
+
+        async function initializeCommentPage() {
+            // Check authentication status
+            const user = await window.authFunctions.checkAuth();
+            updatePageForUser(user);
+            
+            // Load existing comments
+            loadComments();
+
+            // Set up event listeners
+            setupEventListeners();
+        }
+
+        function updatePageForUser(user) {
+            const authNotice = document.getElementById('auth-notice');
+            const commentForm = document.getElementById('comment-form');
+
+            if (user) {
+                authNotice.style.display = 'none';
+                commentForm.style.display = 'block';
+            } else {
+                authNotice.style.display = 'block';
+                commentForm.style.display = 'none';
+            }
+        }
+
+        function setupEventListeners() {
+            // Comment form submission
+            document.getElementById('comment-form').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const nama = document.getElementById('nama').value;
+                const komen = document.getElementById('komen').value;
+
+                const result = await window.authFunctions.submitComment(nama, komen);
+                
+                if (result.success) {
+                    document.getElementById('comment-form').reset();
+                    loadComments(); // Refresh comments
+                }
+            });
+
+            // Login form submission
+            document.getElementById('login-form').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const email = document.getElementById('login-email').value;
+                const password = document.getElementById('login-password').value;
+
+                const result = await window.authFunctions.signIn(email, password);
+                
+                if (result.success) {
+                    closeLoginModal();
+                    updatePageForUser(result.data.user);
+                    document.getElementById('login-form').reset();
+                }
+            });
+
+            // Signup form submission
+            document.getElementById('signup-form').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const name = document.getElementById('signup-name').value;
+                const email = document.getElementById('signup-email').value;
+                const password = document.getElementById('signup-password').value;
+
+                const result = await window.authFunctions.signUp(email, password, name);
+                
+                if (result.success) {
+                    closeSignupModal();
+                    document.getElementById('signup-form').reset();
+                }
+            });
+
+            // Logout button
+            document.getElementById('logout-btn').addEventListener('click', async () => {
+                const result = await window.authFunctions.signOut();
+                if (result.success) {
+                    updatePageForUser(null);
+                }
+            });
+
+            // Modal buttons
+            document.getElementById('login-btn').addEventListener('click', openLoginModal);
+            document.getElementById('signup-btn').addEventListener('click', openSignupModal);
+        }
+
+        async function loadComments() {
+            const commentsList = document.getElementById('comments-list');
+            commentsList.innerHTML = '<div class="loading" style="text-align: center; color: white; padding: 20px;">Memuatkan komen...</div>';
+
+            const result = await window.authFunctions.getComments();
+            
+            if (result.success && result.data.length > 0) {
+                commentsList.innerHTML = result.data.map(comment => `
+                    <div class="comment-item">
+                        <div class="comment-header">
+                            <strong>${comment.nama}</strong>
+                            <span class="comment-date">${new Date(comment.created_at).toLocaleDateString('ms-MY')}</span>
+                        </div>
+                        <div class="comment-content">
+                            ${comment.komen}
+                        </div>
+                    </div>
+                `).join('');
+            } else {
+                commentsList.innerHTML = '<div style="text-align: center; color: white; padding: 20px;">Tiada komen lagi. Jadilah yang pertama!</div>';
+            }
+        }
+
+        // Modal functions
+        window.openLoginModal = () => {
+            document.getElementById('login-modal').style.display = 'flex';
+        };
+
+        window.closeLoginModal = () => {
+            document.getElementById('login-modal').style.display = 'none';
+        };
+
+        window.openSignupModal = () => {
+            document.getElementById('signup-modal').style.display = 'flex';
+        };
+
+        window.closeSignupModal = () => {
+            document.getElementById('signup-modal').style.display = 'none';
+        };
+    </script>
 </body>
 </html>
