@@ -44,6 +44,10 @@
     color: #34495E;
 }
 
+.belimbing-theme  span {
+    color: #34495E;
+}
+
 /* ===============================
    AUTHENTICATION NOTICE
    =============================== */
@@ -342,6 +346,53 @@
     margin: 0;
     padding-left: 20px;
 }
+
+.step-itemB {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px 25px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    counter-increment: step-counter;
+    transition: all 0.3s ease;
+}
+
+.step-itemB:hover {
+    transform: translateX(10px);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.step-itemB::before {
+    content: counter(step-counter);
+    position: absolute;
+    left: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(45deg, #ff6b00, #ffad33);
+    color: #34495E;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.step-itemB li {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #34495E;
+    margin: 0;
+    padding-left: 20px;
+}
+
+
+
 
 /* ===============================
    COMMENT FORM PAGE
